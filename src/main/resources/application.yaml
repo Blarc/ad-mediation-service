@@ -1,0 +1,16 @@
+quarkus:
+  http:
+    auth:
+      basic: true
+
+  security:
+    users:
+      embedded:
+        enabled: true
+        plain-text: true
+        users:
+          dashboard: dashboard
+          processing: processing
+        roles:
+          dashboard: dashboard
+          processing: processing
