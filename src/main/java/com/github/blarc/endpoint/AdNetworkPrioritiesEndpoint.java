@@ -54,7 +54,7 @@ public class AdNetworkPrioritiesEndpoint {
     @PUT
     @RolesAllowed({"processing"})
     public void updateAdNetworkPriorities(Map<String, AdNetworkPriorities> priorities) {
-        priorities.forEach((countryCode, _) -> {
+        priorities.forEach((countryCode, adNetworkPriorities) -> {
             if (!countryCode.matches("^[A-Z]{2}$")) {
                 throw new BadRequestException("Invalid country code");
             }
