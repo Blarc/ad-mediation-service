@@ -23,7 +23,7 @@ resource "google_cloud_run_v2_service" "ad_mediation" {
     service_account = google_service_account.ad_mediation_sa.email
 
     containers {
-      image = "europe-docker.pkg.dev/ad-mediation-service-476306/github-container-registry/blarc/ad-mediation-service:b0c095ea92d17acbf49c884e7733c98a67885274"
+      image = "europe-docker.pkg.dev/ad-mediation-service-476306/github-container-registry/blarc/ad-mediation-service:ce8d471ae86b4b10247b4137a39e628e9712e279"
 
       ports {
         container_port = 8080
