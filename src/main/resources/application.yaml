@@ -32,6 +32,27 @@ quarkus:
   swagger-ui:
     always-include: true
 
+mp:
+  openapi:
+    extensions:
+      smallrye:
+        info:
+          title: Ad Mediation API
+          version: 1.0.0
+          description: API for managing ad network priorities across different countries and platforms
+          contact:
+            name: API Support
+            email: jakob.malezic@gmail.com
+        servers:
+          - url: http://localhost:8080
+            description: Development server
+          - url: https://ad-mediation-service-340096700111.europe-west1.run.app
+            description: Server on Google Cloud Run
+          - url: https://ad-mediation-service.external.blarc.my.id
+            description: Server on self-hosted Kubernetes
+        security:
+          - basicAuth: []
+
 
 "%test":
   quarkus:
