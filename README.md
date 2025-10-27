@@ -2,8 +2,8 @@
 
 A REST API built with Quarkus for retrieving ad network priorities.
 
-- The service is available at [GCP](https://ad-mediation-service-340096700111.europe-west1.run.app)
-  and [self-hosted Kubernetes](https://ad-mediation-service.external.blarc.my.id).
+- The service is available at [GCP](https://ad-mediation-service-340096700111.europe-west1.run.app/q/health)
+  and [self-hosted Kubernetes](https://ad-mediation-service.external.blarc.my.id/q/health).
 - OpenAPI schema is available at `/q/openapi`.
 
 ## 🏗️ Tech Stack
