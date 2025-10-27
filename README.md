@@ -1,10 +1,10 @@
 # Ad Mediation Service
 
 A REST API built with Quarkus for retrieving ad network priorities.
-- The service can be tested
-on https://ad-mediation-service.external.blarc.my.id.
-- OpenAPI schema is available at
-https://ad-mediation-service.external.blarc.my.id/q/openapi.
+
+- The service is available at [GCP](https://ad-mediation-service-340096700111.europe-west1.run.app)
+  and [self-hosted Kubernetes](https://ad-mediation-service.external.blarc.my.id).
+- OpenAPI schema is available at `/q/openapi`.
 
 ## 🏗️ Tech Stack
 
@@ -15,12 +15,20 @@ https://ad-mediation-service.external.blarc.my.id/q/openapi.
 - **API Documentation**: OpenAPI/Swagger
 - **Testing**: JUnit 5, AssertJ
 
-## 📋 Requirements
+## Deployment
+
+- The service can be easily deployed to GCP with Terraform. The documentation and configuration files can be
+  found [here](terraform).
+
+- The configuration files used for the deployment on Kubernetes can be
+  found [here](https://github.com/Blarc/home-k8s/tree/main/kubernetes/apps/ad-mediation-service).
+
+## Development
+
+### 📋 Requirements
 
 - Java 21 or higher
 - Docker (for running Redis with Dev Services)
-
-## 🚀 Getting Started
 
 ### Development Mode
 
@@ -40,7 +48,7 @@ Execute tests while in dev mode by pressing `r`, or run tests separately:
 ./mvnw test
 ```
 
-## 🔍 API Endpoints
+### 🔍 API Endpoints
 
 Once the application is running, you can explore the API at:
 
@@ -50,13 +58,13 @@ Main endpoints include:
 
 - `/ads` - Ad network priorities
 
-## 🛠️ Configuration
+### 🛠️ Configuration
 
 Configuration properties can be found in [application.yaml](src/main/resources/application.yaml).
 
 Customize the application by setting environment variables or updating the configuration file.
 
-## 💡 Development Tips
+### 💡 Development Tips
 
 - Use Dev UI at http://localhost:8080/q/dev/ for development tools
 - Hot reload is enabled in dev mode
