@@ -2,6 +2,19 @@ quarkus:
   http:
     auth:
       basic: true
+    filter:
+      ads:
+        header:
+          "Cache-Control": "public, max-age=3600"
+        matches: /ads/.*
+        methods: GET
+
+  cache:
+    caffeine:
+      country-priorities:
+        maximum-size: 100
+        # Low for testing purposes
+        expire-after-write: 10s
 
   security:
     users:
@@ -14,3 +27,13 @@ quarkus:
         roles:
           dashboard: dashboard
           processing: processing
+
+# Enable Swagger UI in production
+swagger-ui:
+  always-include: true
+
+
+"%test":
+  quarkus:
+   cache:
+    enabled: false

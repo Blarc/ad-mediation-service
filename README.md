@@ -17,9 +17,9 @@ A REST API built with Quarkus for retrieving ad network priorities.
 
 ## Deployment
 
+- Docker files are available [here](src/main/docker).
 - The service can be easily deployed to GCP with Terraform. The documentation and configuration files can be
   found [here](terraform).
-
 - The configuration files used for the deployment on Kubernetes can be
   found [here](https://github.com/Blarc/home-k8s/tree/main/kubernetes/apps/ad-mediation-service).
 

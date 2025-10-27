@@ -3,6 +3,8 @@ package com.github.blarc.service;
 import com.github.blarc.model.AdNetworkPriorities;
 import com.github.blarc.model.AdTypeEnum;
 import com.github.blarc.model.PlatformEnum;
+import io.quarkus.cache.CacheInvalidateAll;
+import io.quarkus.cache.CacheResult;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
@@ -21,6 +23,8 @@ public class AdNetworkPrioritiesService {
             AdTypeEnum.REWARDED, List.of("Unity Ads", "IronSource", "AdMob")
     );
 
+    // Cache is only needed if filtering or Redis becomes a bottleneck, which is unlikely given Redis's performance.
+    @CacheResult(cacheName = "country-priorities")
     public Map<AdTypeEnum, List<String>> getNetworkPrioritiesMap(String countryCode, PlatformEnum platform, String osVersion) {
         var adNetworkPriorities = redisService.get(countryCode);
         if (adNetworkPriorities == null) {
@@ -36,10 +40,12 @@ public class AdNetworkPrioritiesService {
 
         return adNetworkPriorities;
     }
+
     public Map<String, Map<AdTypeEnum, List<String>>> getAllNetworkPriorities() {
         return redisService.getAll();
     }
 
+    @CacheInvalidateAll(cacheName = "country-priorities")
     public void updateAdNetworkPriorities(Map<String, AdNetworkPriorities> prioritiesByCountry) {
         for (var entry : prioritiesByCountry.entrySet()) {
             redisService.set(entry.getKey(), entry.getValue().toMap());
