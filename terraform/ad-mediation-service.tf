@@ -23,7 +23,7 @@ resource "google_cloud_run_v2_service" "ad_mediation" {
     service_account = google_service_account.ad_mediation_sa.email
 
     containers {
-      image = "europe-docker.pkg.dev/ad-mediation-service-476306/github-container-registry/blarc/ad-mediation-service:latest"
+      image = "europe-docker.pkg.dev/ad-mediation-service-476306/github-container-registry/blarc/ad-mediation-service:b0c095ea92d17acbf49c884e7733c98a67885274"
 
       ports {
         container_port = 8080
@@ -59,7 +59,7 @@ resource "google_cloud_run_v2_service" "ad_mediation" {
       }
 
       startup_probe {
-        initial_delay_seconds = 5
+        initial_delay_seconds = 15
         period_seconds        = 5
         timeout_seconds       = 3
         failure_threshold     = 3
