@@ -28,9 +28,9 @@ quarkus:
           dashboard: dashboard
           processing: processing
 
-# Enable Swagger UI in production
-swagger-ui:
-  always-include: true
+  # Enable Swagger UI in production
+  swagger-ui:
+    always-include: true
 
 
 "%test":
